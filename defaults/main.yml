@@ -1,5 +1,6 @@
 ---
-aws_cli_profile: "default"
+aws_cli_system_user: root
+aws_cli_profile: default
 aws_cli_access_key: "<accesss-key>"
 aws_cli_secret_key: "<secret-key>"
 aws_cli_region: eu-west-1

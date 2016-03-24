@@ -31,11 +31,19 @@ bucket `<bucket-name>`.
         ]
     }
 
+By default, profiles will be defined for the root user, if you are using
+another user then the user must exist on the server.
+
+
 Role Variables
 --------------
 
 Available variables are listed below, along with default values (see 
 `defaults/main.yml`):
+
+    aws_cli_system_user: root
+
+System user AWS profile will be saved to.
 
     aws_cli_profile: "default"
 
@@ -66,14 +74,14 @@ Example Playbook
 ----------------
 
     - hosts: mysql-servers
+      become: yes
       vars_files:
         - vars/main.yml
       roles:
-         - { role: memiah.aws-cli }
+         - memiah.aws-cli
 
 *Inside `vars/main.yml`*:
 
-    aws_cli_profile: default
     aws_cli_access_key: "access_key_here"
     aws_cli_secret_key: "secret_key_here"
     aws_cli_region: eu-west-1

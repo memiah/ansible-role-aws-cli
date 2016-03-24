@@ -23,5 +23,5 @@
     aws_secret_access_key: "{{ aws_cli_secret_key }}"
     region: "{{ aws_cli_region }}"
     format: "{{ aws_cli_format }}"
+  become_user: "{{ aws_cli_system_user }}"
   changed_when: false
-
