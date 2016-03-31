@@ -10,10 +10,14 @@ Requirements
 You will need an Amazon AWS account, with a user and access key security
 credentials with permission to the specified bucket.
 
-It is recommended that you create a user with locked down permissions.
-Below is a policy named `AmazonS3CreateReadWriteAccess-<bucket-name>`
+By default, profiles will be defined for the root system user, if you
+are using another user then the user must exist on the server. 
+
+It is recommended that you create an AWS user with locked down permissions
+suitable for only the operations of you require, this can be done using
+policies. Below is a policy named `AmazonS3CreateReadWriteAccess-[bucket-name]`
 that can be used to provide limited (create/list/put) access to the
-bucket `<bucket-name>`.
+bucket `[bucket-name]`.
 
     {
         "Version": "2012-10-17",
@@ -21,19 +25,15 @@ bucket `<bucket-name>`.
             {
                 "Effect": "Allow",
                 "Action": [ "s3:CreateBucket", "s3:ListBucket" ],
-                "Resource": [ "arn:aws:s3:::<bucket-name>" ]
+                "Resource": [ "arn:aws:s3:::[bucket-name]" ]
             },
             {
                 "Effect": "Allow",
                 "Action": [ "s3:PutObject" ],
-                "Resource": [ "arn:aws:s3:::<bucket-name>/*" ]
+                "Resource": [ "arn:aws:s3:::[bucket-name]/*" ]
             }
         ]
     }
-
-By default, profiles will be defined for the root user, if you are using
-another user then the user must exist on the server.
-
 
 Role Variables
 --------------
