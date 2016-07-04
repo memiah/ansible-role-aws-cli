@@ -1,10 +1,9 @@
 ---
-- include: setup-RedHat.yml
-  when: ansible_os_family == 'RedHat'
-
-- include: setup-Debian.yml
-  when: ansible_os_family == 'Debian'
-
+- name: Install packages.
+  package: name={{ item }} state=latest
+  with_items:
+    - python
+    - unzip
 
 - name: Download the awscli bundle.
   get_url: url=https://s3.amazonaws.com/aws-cli/awscli-bundle.zip dest=/tmp/awscli-bundle.zip
