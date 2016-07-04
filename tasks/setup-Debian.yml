@@ -1,6 +1,6 @@
 ---
 - name: Install packages.
-  yum: name={{ item }} state=latest
+  apt: name={{ item }} state=latest
   with_items:
     - python
     - unzip
