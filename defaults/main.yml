@@ -5,3 +5,4 @@ aws_cli_access_key: "<accesss-key>"
 aws_cli_secret_key: "<secret-key>"
 aws_cli_region: eu-west-1
 aws_cli_format: text
+aws_cli_version: false

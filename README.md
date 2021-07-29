@@ -59,11 +59,15 @@ Your Amazon AWS secret key.
 
     aws_cli_region: eu-west-1
     
-Region name where the S3 bucket is located.
+Region name where the S3 bucket can be located.
 
     aws_cli_format: text
     
 Output format from the AWS CLI, either `json`, `text` or `table`.
+
+    aws_cli_version: false
+
+Specific AWS CLI bundle version, e.g. `1.19.107`, default is latest.
 
 Dependencies
 ------------

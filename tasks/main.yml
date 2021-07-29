@@ -5,8 +5,15 @@
     - python
     - unzip
 
+- set_fact:
+    aws_cli_bundle: awscli-bundle-{{ aws_cli_version }}
+  when: aws_cli_version
+
+- name: AWS CLI bundle to install.
+  debug: var=aws_cli_bundle
+
 - name: Download the awscli bundle.
-  get_url: url=https://s3.amazonaws.com/aws-cli/awscli-bundle.zip dest=/tmp/awscli-bundle.zip
+  get_url: url=https://s3.amazonaws.com/aws-cli/{{ aws_cli_bundle }}.zip dest=/tmp/awscli-bundle.zip
   register: aws_cli_download_bundle
 
 - name: Unarchive the installer.
