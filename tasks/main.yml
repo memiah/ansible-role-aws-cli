@@ -7,7 +7,7 @@
 
 - set_fact:
     aws_cli_bundle: awscli-bundle-{{ aws_cli_version }}
-  when: aws_cli_version
+  when: aws_cli_version != false
 
 - name: AWS CLI bundle to install.
   debug: var=aws_cli_bundle
